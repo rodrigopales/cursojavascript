@@ -10,22 +10,104 @@
 
     <main>
     <h1>Farejador</h1>
-    <img src="imagens/farejador.png" alt="">
-    <p>Selecionamos um número aleatório entre 1 e 100. Veja se consegue adivinhar em 10 chances ou menos.
-      Lhe diremos se seu palpite está com valor alto ou baixo.
-    </p><br>
+    <img src="imagens/farejador.png" alt="Farejador" >
 
-      Digite seu palpite <br><input type="text" name="numero" value=""><br> <button type="button" name="button">Enviar Palpite</button>
+    <p>Nós selecionamos um número aleatório entre 1 e 100. Veja se consegue adivinhar em 10 chances ou menos. Nós lhe diremos se seu palpite foi muito alto ou muito baixo.</p>
 
-      <p class="resultadosCertos">
 
-      </p>
+    <div class="form">
+      <label for="campoPalpite">Digite seu palpite: </label><input type="text" id="campoPalpite" class="campoPalpite">
+      <input type="submit" value="Enviar palpite" class="envioPalpite">
+    </div>
 
-      <p class="resultadosErrados">
+    <div class="resultadoParas">
+      <p class="palpites"></p>
+      <p class="ultimoResultado"></p>
+      <p class="baixoOuAlto"></p>
+    </div>
 
-      </p>
 
     </main>
 
+    <!-- Estrutura que advinhe o numero e coloca na tela -->
+    <script type="text/javascript">
+        var numeroAleatorio= Math.floor(Math.random() * 100) + 1;
+        var palpites = document.querySelector('.palpites');
+        var ultimoResultado = document.querySelector('.ultimoResultado');
+        var baixoOuAlto = document.querySelector('.baixoOuAlto');
+        var envioPalpite = document.querySelector('.envioPalpite');
+        var campoPalpite = document.querySelector('.campoPalpite');
+
+        var contagemPalpites = 1;
+        var botaoReinicio;
+
+
+        function conferirPalpite() {
+          var palpiteUsuario = Number(campoPalpite.value);
+          if (contagemPalpites === 1) {
+            palpites.textContent = 'Palpites anteriores: ';
+          }
+          palpites.textContent += palpiteUsuario + ' ';
+
+          if (palpiteUsuario === numeroAleatorio) {
+            ultimoResultado.textContent = 'Parabéns! Você acertou!';
+            ultimoResultado.style.backgroundColor = 'green';
+            baixoOuAlto.textContent = '';
+            configFimDeJogo();
+          } else if (contagemPalpites === 10) {
+            ultimoResultado.textContent = '!!!FIM DE JOGO!!!';
+            baixoOuAlto.textContent = '';
+            configFimDeJogo();
+          } else {
+            ultimoResultado.textContent = 'Errado!';
+            ultimoResultado.style.backgroundColor = 'red';
+            if(palpiteUsuario < numeroAleatorio) {
+              baixoOuAlto.textContent = 'Seu palpite está muito baixo!';
+            } else if(palpiteUsuario > numeroAleatorio) {
+              baixoOuAlto.textContent = 'Seu palpite está muito alto!';
+            }
+          }
+
+          contagemPalpites++;
+          campoPalpite.value = '';
+          campoPalpite.focus();
+        }
+
+        envioPalpite.addEventListener('click', conferirPalpite);
+
+        function configFimDeJogo() {
+          campoPalpite.disabled = true;
+          envioPalpite.disabled = true;
+          botaoReinicio = document.createElement('button');
+          botaoReinicio.textContent = 'Iniciar novo jogo';
+          document.body.appendChild(botaoReinicio);
+          botaoReinicio.addEventListener('click', reiniciarJogo);
+        }
+
+        function reiniciarJogo() {
+          contagemPalpites = 1;
+
+          var reiniciarParas = document.querySelectorAll('.resultadoParas p');
+          for (var i = 0 ; i < reiniciarParas.length ; i++) {
+            reiniciarParas[i].textContent = '';
+          }
+
+          botaoReinicio.parentNode.removeChild(botaoReinicio);
+
+          campoPalpite.disabled = false;
+          envioPalpite.disabled = false;
+          campoPalpite.value = '';
+          campoPalpite.focus();
+
+          ultimoResultado.style.backgroundColor = 'white';
+
+          numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+  }
+
+    </script>
+
+
   </body>
+
+
 </html>
