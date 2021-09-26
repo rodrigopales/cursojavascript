@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Concatenação</title>
+</head>
+<body>
+    <h1 class="p-4 text-2xl font-bold">Concatenação</h1>
+
+    Digite seu nome:
+    <input class="border-2 border-black text-red-400 bg-gray-100 rounded-lg p-2" type="text" name="nome" id="nome"/>
+    
+    
+    
+
+</body>
+
+<script>
+
+    //; é opcinal no JavaScript fica ao critério do programador ou ao critério da equipe
+   
+   //pegando valores via prompt
+   var nome = prompt("Digite seu nome");
+   var anos = prompt("Digite sua idade");
+
+   //mostrando a distinção que o JS faz das variáveis
+   console.log(anos);
+   console.log(nome);
+
+   //concatenando strings utilizando o operador +
+   document.write('<h1> Olá <b>'+ nome + '</b> tudo bem? Estou vendo aqui que possui '+anos +' anos </h1>');
+  
+
+</script>
+
+</html>
