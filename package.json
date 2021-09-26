@@ -1,0 +1,23 @@
+{
+  "name": "cursojavascript",
+  "version": "1.0.0",
+  "description": "Repositório criado para anotações e exercícios nessa caminhada que estou iniciando para aprender JavaScript do zero.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigopales/cursojavascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrigopales/cursojavascript/issues"
+  },
+  "homepage": "https://github.com/rodrigopales/cursojavascript#readme",
+  "dependencies": {
+    "tailwindcss": "^2.2.16"
+  }
+}
