@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Desafio ABC</title>
+</head>
+<body>
+    <h1 class="p-4 text-2xl font-bold">Desafio ABC</h1>
+
+    <p class="p-10">JavaScript é uma linguagem interpretada, 
+    isso porque os scripts JS são interpretados pelo browser em tempo de execução.</p>
+    
+
+</body>
+
+<script>
+   
+   var a = 10;
+   var b = 20;
+   var c = null;
+
+   document.write('A: ' + a + '<br />');
+   document.write('B: ' + b + '<br />');
+   document.write('C: ' + c + '<br />');
+
+   document.write('<hr>');
+  
+   //invertendo os valores das variáveis A e B
+   
+   c = a; //pegando valor de A para passar pra B 
+   a = b; //pegando valor de B
+   b = c; //pegando valor de A através da variável C
+   c = null; //resetando para null para sair como no primeiro bloco
+
+   document.write('A: ' + a + '<br />');
+   document.write('B: ' + b + '<br />');
+   document.write('C: ' + c + '<br />');
+
+
+
+</script>
+
+</html>
